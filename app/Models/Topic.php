@@ -10,4 +10,8 @@ class Topic extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'description'];
+    // egy topicon belül több post is lehet 1:N
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
 }
