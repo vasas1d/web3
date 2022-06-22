@@ -17,7 +17,10 @@ use App\Http\Controllers;
 
 Route::get('/', [Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/publish', [Controllers\PostController::class, 'create'])->name('post.create');
+
+Route::middleware('auth')->group(function(){
 Route::post('/publish', [Controllers\PostController::class, 'store']);
 Route::get('/post/{post}', [Controllers\PostController::class, 'show'])->name('post.details');
+});
 
 require __DIR__.'/auth.php';

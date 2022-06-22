@@ -6,6 +6,7 @@ use App\Models\Topic;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -47,9 +48,8 @@ class PostController extends Controller
             'content'=>'required',
         ]);
 
-        // todo use authenticated user
-        $user = User::inRandomOrder()->first();
-        $post = $user->posts()->create($request->except('_token'));
+
+        $post = $request->user()->posts()->create($request->except('_token'));
         //$post = $user->posts()->create($request->all()); // ez is jó
         return redirect()->route('post.details', $post);
     }
