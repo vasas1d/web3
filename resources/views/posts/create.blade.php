@@ -18,7 +18,7 @@
                         @csrf
                         <div class="mb-3">
                             <label for="title">{{ __('Title') }}</label>
-                            <input class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" type="text" name="title">
+                            <input class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" type="text" name="title" value="{{ old('title') }}">
                             @if ($errors->has('title'))
                             <p class="invalid-feedback">
                                     {{ $errors->first('title') }}
@@ -28,9 +28,9 @@
                         <div class="mb-3">
                             <label for="topic_id">{{ __('Topic') }}</label>
                             <select class="form-control{{ $errors->has('topic_id') ? ' is-invalid' : '' }}" name="topic_id">
-                                <option>{{ __('Kérlek válassz') }}</option>
+                                <option>{{ __('Please choose one') }}</option>
                                 @foreach ($topics as $topic)
-                                    <option value="{{ $topic->id }}">
+                                    <option value="{{ $topic->id }}" {{ $topic->id == old('topic_id') ? 'selected' : '' }}>
                                         {{ $topic->name }}
                                     </option>                                   
                                 @endforeach
@@ -43,7 +43,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="description">{{ __('Description') }}</label>
-                            <textarea class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description"></textarea>
+                            <textarea class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description">{{ old('description') }}</textarea>
                             @if ($errors->has('description'))
                             <p class="invalid-feedback">
                                     {{ $errors->first('description') }}
@@ -52,7 +52,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="content">{{ __('Content') }}</label>
-                            <textarea class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content"></textarea>
+                            <textarea class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content">{{ old('content') }}</textarea>
                             @if ($errors->has('content'))
                             <p class="invalid-feedback">
                                     {{ $errors->first('content') }}
