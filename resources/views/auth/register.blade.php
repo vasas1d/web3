@@ -68,7 +68,7 @@
 
                     <div class="d-grid">
                         <a href="{{ route('login') }}" class="btn btn-link btn-lg">
-                            {{ __('Already have an account? Sign up here') }}
+                            {{ __('Already have an account? Sign in here') }}
                         </a>
                     </div>
 
