@@ -18,7 +18,9 @@
             <ul class="navbar-nav ms-2">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{ Auth::user()->name }}
+
+                  <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" width="25">  
+                  {{ Auth::user()->name }}          
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="#">Profile</a></li>
