@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Topic;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -45,6 +46,12 @@ class PostController extends Controller
             'description'=>'required|min:10',
             'content'=>'required',
         ]);
+
+        // todo use authenticated user
+        $user = User::inRandomOrder()->first();
+        $post = $user->posts()->create($request->except('_token'));
+        //$post = $user->posts()->create($request->all()); // ez is jó
+        return redirect()->route('post.details', $post);
     }
 
     /**
