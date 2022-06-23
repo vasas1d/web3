@@ -1,4 +1,16 @@
 @extends('layouts.main')
+
+@push('scripts')
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+@endpush
+
 @section('content')
     <div class="row">
         <div class="col-md-6 col-lg-4 mx-auto">
@@ -43,7 +55,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="description">{{ __('Description') }}</label>
-                            <textarea class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description">{{ old('description') }}</textarea>
+                            <textarea  class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description">{{ old('description') }}</textarea>
                             @if ($errors->has('description'))
                             <p class="invalid-feedback">
                                     {{ $errors->first('description') }}
@@ -52,9 +64,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="content">{{ __('Content') }}</label>
-                            <textarea class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content">{{ old('content') }}</textarea>
+                            <textarea id="editor" name="content">{{ old('content') }}</textarea>
                             @if ($errors->has('content'))
-                            <p class="invalid-feedback">
+                            <p class="d-block invalid-feedback">
                                     {{ $errors->first('content') }}
                             </p>                          
                             @endif

@@ -23,7 +23,7 @@
             {{ $post->description }}
         </div>
         <div class="">
-            {{ $post->content }}
+            {!! $post->content !!} {{-- Editorhoz kell a dupla !-es utasítás--}}
         </div>
 
 </div>
