@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @push('scripts')
-<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script> {{--hibája, h js-t is letárolhat az adatbázisban.--}}
 <script>
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
