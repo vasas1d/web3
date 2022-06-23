@@ -18,5 +18,16 @@
                 {{ __('Read more') }}
             </a>
         </div>
+        <div class="text-end">
+            <a href="{{ route('post.details', $post)}}">
+                {{ __('Edit post') }}
+            </a>
+        </div>
+        <div class="text-end">
+            <a href="{{ route('post.details', $post)}}">
+                {{ __('Delete post') }}
+            </a>
+        </div>
+
     </div>
 </div>
