@@ -48,7 +48,16 @@
   
     <div class="nav-scroller py-1 mb-2">
       <nav class="nav d-flex justify-content-between">
-        <a class="p-2 link-secondary" href="#">Football</a>
+
+        @foreach ($topics as $topic)
+        <a class="p-2 link-secondary" href="{{ route('topic.details', $topic) }}">
+          {{ $topic->name }}
+        </a>
+        @endforeach
+        
+
+
+        {{--<a class="p-2 link-secondary" href="#">Football</a>
         <a class="p-2 link-secondary" href="#">Cricket</a>
         <a class="p-2 link-secondary" href="#">Basketball</a>
         <a class="p-2 link-secondary" href="#">Field Hockey</a>
@@ -57,7 +66,7 @@
         <a class="p-2 link-secondary" href="#">Table Tennis</a>
         <a class="p-2 link-secondary" href="#">Baseball</a>
         <a class="p-2 link-secondary" href="#">American Football</a>
-        <a class="p-2 link-secondary" href="#">Golf</a>
+        <a class="p-2 link-secondary" href="#">Golf</a> --}}
       </nav>
     </div>
   </div>
