@@ -7,5 +7,6 @@
         @include('posts._item')
       </div>
     @endforeach
+    {{ $posts->links() }}
 </div>
 @endsection
