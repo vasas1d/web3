@@ -12,6 +12,9 @@
                 {{ 'No posts here' }}
             </div>
         @endforelse
+        <div class="d-flex justify-content-center">
+            {{ $posts->links() }}
+        </div>
     </div>
     </div>
 @endsection

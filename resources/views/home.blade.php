@@ -7,6 +7,8 @@
         @include('posts._item')
       </div>
     @endforeach
-    {{ $posts->links() }}
+    <div class="d-flex justify-content-center">
+      {{ $posts->links() }}
+    </div>
 </div>
 @endsection
